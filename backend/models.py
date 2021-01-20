@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Lasso
 import sklearn.metrics as metrics
+import joblib
 models={'LR':LinearRegression(),
         'Lasso':Lasso()
 }
@@ -9,6 +10,11 @@ models={'LR':LinearRegression(),
 def train(X_train,y_train,modelName):
     return models[modelName].fit(X_train,y_train)
     
+def saveModel(model,path):
+    file = open(f'{path}', 'wb')
+    joblib.dump(model, file)
+    file.close()
+
 def predict(X_test,model):
     return model.predict(X_test)
 

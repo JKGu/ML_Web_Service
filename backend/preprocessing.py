@@ -8,3 +8,6 @@ def sanitize(df):
     # drop categorical variables
     df = df.select_dtypes(exclude=['object'])
     return df
+
+def processPredictData(df):
+    pass
